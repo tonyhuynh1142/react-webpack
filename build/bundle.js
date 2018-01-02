@@ -67,20 +67,36 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const sum = __webpack_require__(1);
+"use strict";
 
-const total = sum(3,5);
+
+var _math = __webpack_require__(1);
+
+var _math2 = _interopRequireDefault(_math);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var total = (0, _math2.default)(3, 5); // const sum = require('./math');
+
 console.log(total);
 document.write(total);
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-const sum = (a, b) => {
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var sum = function sum(a, b) {
 	return a + b;
-}
-module.exports = sum;
+};
+
+exports.default = sum;
+// module.exports = sum;
 
 /***/ })
 /******/ ]);
