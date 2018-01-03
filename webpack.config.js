@@ -1,11 +1,26 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const VENDOR_LIRS = [
+	'axios',
+	'bootstrap',
+	'jquery',
+	'react',
+	'react-dom',
+	'react-redux',
+	'react-router-dom',
+	'redux',
+	'redux-thunk'
+]
+
 const config = {
-	entry: './src/index.js',
+	entry: {
+		bundle: './src/index.js',
+		vendor : VENDOR_LIRS
+	},
 	output: {
 		path: path.join(__dirname, 'build'),
-		filename: 'bundle.js'
+		filename: '[name].js'
 	},
 	module : {
 		rules : [
