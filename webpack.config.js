@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VENDOR_LIRS = [
 	'axios',
@@ -20,7 +21,7 @@ const config = {
 	},
 	output: {
 		path: path.join(__dirname, 'build'),
-		filename: '[name].js'
+		filename: '[name].[chunkhash].js'
 	},
 	module : {
 		rules : [
@@ -50,7 +51,10 @@ const config = {
 			'window.jQuery': 'jquery'
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
-			name: "vendor"
+			names : ['vendor', 'manifest']
+		}),
+		new HtmlWebpackPlugin({
+			template : 'src/index.html'
 		})
 	] 
 }
