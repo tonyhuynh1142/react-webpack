@@ -12,7 +12,15 @@ const VENDOR_LIRS = [
 	'react-router-dom',
 	'redux',
 	'redux-thunk'
-]
+];
+
+const devServer = {
+	port: 9000,
+	open: true,
+	inline: true,
+	compress: true,
+	overlay: true
+};
 
 const config = {
 	entry: {
@@ -56,7 +64,8 @@ const config = {
 		new HtmlWebpackPlugin({
 			template : 'src/index.html'
 		})
-	] 
+	],
+	devServer
 }
 
 module.exports = config;
